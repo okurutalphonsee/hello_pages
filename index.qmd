@@ -1,0 +1,57 @@
+---
+title: "My first Page"
+subtitle: "The power of HTML documents "
+author: "Alphonse Egidius Okurut"
+theme: morph
+#output: html_document
+date: "2024-06-30"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(pacman)
+if(!require(pacman)) install.packages("pacman")  
+pacman::p_load(tidyverse,
+               reactable,
+               plotly,
+               prettydoc,
+               janitor)
+```
+
+# What makes HTML reports so great? {.tabset}
+
+:::{.panel-tabset}
+
+## Interactive tables
+
+For example reactable
+
+```{r}
+reactable(infert)
+```
+
+## Interactive Plots
+
+e.g plotly
+
+Plot of bar chart of education levels by   from the infert daset on infertility
+
+```{r}
+education_plot <- 
+infert %>% 
+  ggplot(aes(x = education, fill=education))+
+    geom_bar()
+ggplotly(education_plot)
+```
+
+:::
+
+# Why are HTML reports so rich?
+
+
+
+
+
+
+
